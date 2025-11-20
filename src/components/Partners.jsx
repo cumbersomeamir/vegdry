@@ -43,43 +43,43 @@ export default function Partners() {
   });
 
   return (
-    <section className="py-24 bg-gray-50" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-gray-50" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-3 sm:mb-4">
             A Supply Chain Built For Scale
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600 px-4">
             Vegdry works with a wide network of agriculture suppliers, drying units, and international buyers to ensure speed and efficiency.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-16">
           {trail.map(({ height, ...style }, index) => {
             const Partner = partners[index];
             return (
               <animated.div
                 key={index}
                 style={style}
-                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center h-full"
+                className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center h-full"
               >
-                <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-4">
-                  <Partner.icon size={20} />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-3 sm:mb-4">
+                  <Partner.icon size={18} className="sm:w-5 sm:h-5" />
                 </div>
-                <h3 className="font-bold text-gray-900">{Partner.title}</h3>
+                <h3 className="font-bold text-xs sm:text-sm text-gray-900 leading-tight">{Partner.title}</h3>
               </animated.div>
             );
           })}
         </div>
 
-        <div className="bg-white rounded-3xl p-10 border border-gray-200 shadow-sm">
-          <h3 className="text-2xl font-bold text-center mb-10 text-gray-900">Industries We Power</h3>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-gray-200 shadow-sm">
+          <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-10 text-gray-900">Industries We Power</h3>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             {industries.map((ind, i) => (
               <motion.span
                 key={i}
@@ -87,7 +87,7 @@ export default function Partners() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="px-6 py-3 rounded-full bg-gray-50 text-gray-700 font-medium border border-gray-200 hover:border-primary/50 hover:text-primary transition-colors cursor-default"
+                className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-gray-50 text-gray-700 font-medium border border-gray-200 hover:border-primary/50 hover:text-primary transition-colors cursor-default text-xs sm:text-sm"
               >
                 {ind}
               </motion.span>

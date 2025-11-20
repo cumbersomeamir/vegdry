@@ -46,35 +46,35 @@ export default function Hero() {
            </span>
         </motion.div>
         
-        <motion.h1 variants={itemVariants} className="font-serif text-6xl font-extrabold tracking-tight text-gray-900 md:text-8xl drop-shadow-sm">
+        <motion.h1 variants={itemVariants} className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold tracking-tight text-gray-900 drop-shadow-sm px-2">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500">Vegdry</span>
         </motion.h1>
         
-        <motion.p variants={itemVariants} className="mt-6 text-xl font-medium text-gray-800 md:text-3xl max-w-2xl mx-auto leading-relaxed">
+        <motion.p variants={itemVariants} className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-800 max-w-2xl mx-auto leading-relaxed px-4">
           Preserving <span className="text-primary font-bold">Culture, one grain at a time.</span>
         </motion.p>
         
-        <motion.p variants={itemVariants} className="mt-4 text-lg text-gray-600 max-w-xl mx-auto font-light">
+        <motion.p variants={itemVariants} className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-xl mx-auto font-light px-4">
           Real fruits and vegetables, made lighter, longer-lasting, and easier to use. 
           Experience the future of sustainable snacking.
         </motion.p>
         
-        <motion.div variants={itemVariants} className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-          <Link href="/products" passHref>
+        <motion.div variants={itemVariants} className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 w-full sm:w-auto">
+          <Link href="/products" passHref className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-bold text-white shadow-xl hover:bg-orange-600 hover:shadow-2xl transition-all"
+              className="group flex items-center justify-center gap-2 rounded-full bg-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-white shadow-xl hover:bg-orange-600 hover:shadow-2xl transition-all w-full sm:w-auto"
             >
               Discover Products
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
             </motion.button>
           </Link>
-          <Link href="/aboutus" passHref>
+          <Link href="/aboutus" passHref className="w-full sm:w-auto">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-full bg-white px-8 py-4 text-lg font-bold text-gray-800 shadow-lg hover:bg-gray-50 transition-all border border-gray-100"
+              className="rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold text-gray-800 shadow-lg hover:bg-gray-50 transition-all border border-gray-100 w-full sm:w-auto"
             >
               Our Story
             </motion.button>

@@ -10,27 +10,27 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Header */}
-      <section className="relative py-24 bg-gray-900 text-white overflow-hidden">
+      <section className="relative py-16 sm:py-20 md:py-24 bg-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
            <div className="absolute -right-20 -top-20 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
            <div className="absolute -left-20 bottom-0 w-72 h-72 bg-orange-300 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container mx-auto px-6 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6">Get in Touch</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-4 sm:mb-6">Get in Touch</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             We operate at the speed of commerce. Reach out now and let's build a supply chain that works for you.
           </p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 container mx-auto px-6">
+      <section className="py-12 sm:py-16 md:py-20 container mx-auto px-4 sm:px-6">
         <ContactForm />
       </section>
       
       {/* Map Section (Visual Placeholder) */}
-      <section className="h-96 bg-gray-100 relative w-full grayscale hover:grayscale-0 transition-all duration-700">
+      <section className="h-64 sm:h-80 md:h-96 bg-gray-100 relative w-full grayscale hover:grayscale-0 transition-all duration-700">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.4768568332545!2d77.9949!3d30.2728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39092bc7e6804155%3A0x5606055555555555!2sClement%20Town%2C%20Dehradun%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1625555555555!5m2!1sen!2sin" 
           width="100%" 

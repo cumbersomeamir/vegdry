@@ -45,12 +45,12 @@ export default function Header() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <Logo className="w-10 h-10 transition-transform group-hover:scale-110" />
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
+            <Logo className="w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110" />
             <span
-              className={`font-serif text-2xl font-bold tracking-tight transition-colors ${
+              className={`font-serif text-xl sm:text-2xl font-bold tracking-tight transition-colors ${
                 scrolled || pathname !== "/" ? "text-gray-900" : "text-gray-900"
               }`}
             >
@@ -94,21 +94,21 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+          {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-white pt-20 sm:pt-24 px-4 sm:px-6 md:hidden overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6 text-center">
+            <nav className="flex flex-col gap-4 sm:gap-6 text-center">
               {links.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-2xl font-serif font-bold ${
+                  className={`text-xl sm:text-2xl font-serif font-bold py-2 ${
                     pathname === link.href ? "text-primary" : "text-gray-900"
                   }`}
                 >
@@ -116,8 +116,8 @@ export default function Header() {
                 </Link>
               ))}
               <hr className="border-gray-100 my-4" />
-              <div className="flex justify-center">
-                 <Logo className="w-16 h-16" />
+              <div className="flex justify-center pb-8">
+                 <Logo className="w-14 h-14 sm:w-16 sm:h-16" />
               </div>
             </nav>
           </motion.div>

@@ -45,16 +45,16 @@ export default function WhyVegdry() {
   });
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden py-24 bg-gray-900 text-white">
+    <section ref={containerRef} className="relative overflow-hidden py-12 sm:py-16 md:py-24 bg-gray-900 text-white">
       {/* Animated Background Grid */}
       <animated.div 
         style={springProps}
         className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" 
       />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -62,31 +62,31 @@ export default function WhyVegdry() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary font-bold text-sm mb-6 border border-primary/30">
-              <Globe2 size={16} />
-              Global Supply Chain Revolution
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-primary/20 text-primary font-bold text-xs sm:text-sm mb-4 sm:mb-6 border border-primary/30">
+              <Globe2 size={14} className="sm:w-4 sm:h-4" />
+              <span className="whitespace-nowrap">Global Supply Chain Revolution</span>
             </div>
             
-            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 sm:mb-6 leading-tight">
               The Problem: <br/>
               <span className="text-gray-400">Supply Chains are Broken.</span>
             </h2>
             
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed border-l-4 border-primary pl-6">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed border-l-4 border-primary pl-4 sm:pl-6">
               Traditional dried food supply chains are plagued by <strong>middlemen, spoilage, and energy inefficiency</strong>. This inflates costs by up to 300% before the product even hits the shelf.
             </p>
 
-            <h3 className="text-3xl font-bold text-white mb-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
               The Solution: <span className="text-primary">The Vegdry Engine.</span>
             </h3>
             
-            <p className="text-lg text-gray-400 mb-10">
+            <p className="text-base sm:text-lg text-gray-400 mb-8 sm:mb-10">
               We built a manufacturing fortress in India. By owning the factory floor and deploying advanced processing tech, we've engineered a price-point that global competitors simply cannot match.
             </p>
 
             <Link href="/aboutus">
-              <button className="group flex items-center gap-3 text-lg font-bold text-white hover:text-primary transition-colors">
-                See Our Factories <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+              <button className="group flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-bold text-white hover:text-primary transition-colors">
+                See Our Factories <ChevronRight size={18} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </Link>
           </motion.div>
@@ -96,7 +96,7 @@ export default function WhyVegdry() {
             {/* Connecting Line */}
             <div className="absolute left-8 top-10 bottom-10 w-0.5 bg-gradient-to-b from-primary/50 to-transparent hidden md:block"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-6 sm:space-y-8 md:space-y-12">
               {features.map((feature, idx) => (
                 <motion.div
                   key={feature.id}
@@ -104,19 +104,19 @@ export default function WhyVegdry() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.2, duration: 0.6 }}
-                  className="relative pl-0 md:pl-20 flex gap-6 md:block"
+                  className="relative pl-0 md:pl-20"
                 >
                   {/* Node Dot */}
                   <div className="hidden md:flex absolute left-0 top-0 h-16 w-16 items-center justify-center rounded-full bg-gray-800 border-4 border-gray-900 z-10 shadow-xl">
                     <div className={`h-3 w-3 rounded-full ${feature.color.replace('bg-', 'bg-').replace('text-', '')} animate-pulse`} />
                   </div>
 
-                  <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-700 hover:border-primary/50 transition-colors group">
-                    <div className={`h-12 w-12 rounded-lg ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                      <feature.icon size={24} />
+                  <div className="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-gray-700 hover:border-primary/50 transition-colors group">
+                    <div className={`h-10 w-10 sm:h-12 sm:w-12 rounded-lg ${feature.color} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform`}>
+                      <feature.icon size={20} className="sm:w-6 sm:h-6" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-2">{feature.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <h4 className="text-lg sm:text-xl font-bold text-white mb-2">{feature.title}</h4>
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
                       {feature.desc}
                     </p>
                   </div>

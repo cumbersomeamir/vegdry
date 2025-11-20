@@ -64,7 +64,7 @@ function ConnectingLines() {
 
 export default function MissionSection() {
   return (
-    <section className="relative h-[80vh] w-full bg-[#0f172a] overflow-hidden flex items-center justify-center">
+    <section className="relative min-h-[60vh] sm:min-h-[70vh] md:h-[80vh] w-full bg-[#0f172a] overflow-hidden flex items-center justify-center py-12 sm:py-16 md:py-0">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 3] }}>
@@ -81,27 +81,27 @@ export default function MissionSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-[#0f172a]/80 z-10 pointer-events-none" />
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-20 text-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-bold text-sm uppercase tracking-widest mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-bold text-xs sm:text-sm uppercase tracking-widest mb-6 sm:mb-8 backdrop-blur-md">
             Our North Star
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-serif font-bold text-white mb-12 leading-tight drop-shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-8 sm:mb-10 md:mb-12 leading-tight drop-shadow-2xl px-2">
             Eliminate Waste. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-primary">
               Democratize Nutrition.
             </span>
           </h2>
 
-          <div className="relative inline-block">
-             <div className="absolute -inset-4 bg-gradient-to-r from-orange-600/20 to-purple-600/20 blur-xl rounded-full"></div>
-             <p className="relative text-xl md:text-3xl max-w-4xl mx-auto leading-relaxed font-light text-gray-300 italic bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+          <div className="relative inline-block max-w-full px-4">
+             <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-orange-600/20 to-purple-600/20 blur-xl rounded-full"></div>
+             <p className="relative text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl max-w-4xl mx-auto leading-relaxed font-light text-gray-300 italic bg-white/5 backdrop-blur-sm p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-white/10">
                "We are building the world's most efficient dehydration supply chain to ensure that every harvest reaches a plate, not a landfill."
              </p>
           </div>

@@ -44,23 +44,23 @@ const cases = [
 
 export default function UseCases() {
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section className="py-12 sm:py-16 md:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-3 sm:mb-4">
             Built for Every Segment
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600 px-4">
             Vegdry designs its product range to meet the real-world needs of mass-market manufacturers.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {cases.map((item, idx) => (
             <motion.div
               key={idx}
@@ -68,15 +68,15 @@ export default function UseCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group p-8 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:border-orange-100 transition-all"
+              className="group p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:border-orange-100 transition-all"
             >
-              <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-700 mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <item.icon size={28} />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 rounded-xl flex items-center justify-center text-gray-700 mb-4 sm:mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                <item.icon size={24} className="sm:w-7 sm:h-7" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-              <p className="text-sm text-gray-500 mb-6">{item.desc}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{item.title}</h3>
+              <p className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">{item.desc}</p>
               
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {item.items.map((tag, t) => (
                   <span key={t} className="text-xs font-medium px-2 py-1 bg-gray-50 text-gray-600 rounded-md">
                     {tag}

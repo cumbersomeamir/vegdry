@@ -58,7 +58,7 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 tracking-tight leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-6 sm:mb-8 tracking-tight leading-[1.1] px-4"
           >
             Scale Your Supply <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-primary to-orange-600">
@@ -72,7 +72,7 @@ export default function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 mb-16 max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-12 sm:mb-16 max-w-2xl mx-auto font-light leading-relaxed px-4"
           >
             Join 45+ global partners sourcing premium dehydrated ingredients directly from our factories. No middlemen. No markup.
           </motion.p>
@@ -108,7 +108,7 @@ export default function CTA() {
              whileInView={{ opacity: 1 }}
              viewport={{ once: true }}
              transition={{ delay: 0.5 }}
-             className="mt-20 pt-10 border-t border-white/5 flex flex-wrap justify-center gap-8 md:gap-16 text-gray-500 font-medium text-sm uppercase tracking-widest"
+             className="mt-12 sm:mt-16 md:mt-20 pt-6 sm:pt-8 md:pt-10 border-t border-white/5 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-16 text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-widest px-4"
           >
             <span>ISO 22000 Certified</span>
             <span>HACCP Compliant</span>
