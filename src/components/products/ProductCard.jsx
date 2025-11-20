@@ -1,19 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { useSpring, animated, to } from "@react-spring/web";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCart, Plus } from "lucide-react";
 
+const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1];
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
 export default function ProductCard({ product }) {
+  const [props, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }));
+
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      whileHover={{ y: -8 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-xl border border-gray-100"
+    <animated.div
+      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+      onMouseLeave={() => set({ xys: [0, 0, 1] })}
+      style={{ transform: to(props.xys, trans) }}
+      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-2xl border border-gray-100 z-10"
     >
       {/* Image Area */}
       <div className="relative h-64 w-full overflow-hidden bg-gray-50">
@@ -65,7 +69,6 @@ export default function ProductCard({ product }) {
           </Link>
         </div>
       </div>
-    </motion.div>
+    </animated.div>
   );
 }
-

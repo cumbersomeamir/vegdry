@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTrail, animated } from "@react-spring/web";
 import { Network, Truck, Users, Globe } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 
 const partners = [
   { title: "Contracted Farms", icon: Users },
@@ -20,8 +22,28 @@ const industries = [
 ];
 
 export default function Partners() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const trail = useTrail(partners.length, {
+    from: { opacity: 0, x: 20, height: 0 },
+    to: { opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20, height: isVisible ? 110 : 0 },
+    config: { mass: 5, tension: 2000, friction: 200 },
+  });
+
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -38,21 +60,21 @@ export default function Partners() {
         </motion.div>
 
         <div className="grid md:grid-cols-4 gap-6 mb-16">
-          {partners.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center"
-            >
-              <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-4">
-                <p.icon size={20} />
-              </div>
-              <h3 className="font-bold text-gray-900">{p.title}</h3>
-            </motion.div>
-          ))}
+          {trail.map(({ height, ...style }, index) => {
+            const Partner = partners[index];
+            return (
+              <animated.div
+                key={index}
+                style={style}
+                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center text-center h-full"
+              >
+                <div className="w-12 h-12 bg-orange-50 rounded-full flex items-center justify-center text-primary mb-4">
+                  <Partner.icon size={20} />
+                </div>
+                <h3 className="font-bold text-gray-900">{Partner.title}</h3>
+              </animated.div>
+            );
+          })}
         </div>
 
         <div className="bg-white rounded-3xl p-10 border border-gray-200 shadow-sm">
@@ -76,4 +98,3 @@ export default function Partners() {
     </section>
   );
 }
-

@@ -2,12 +2,24 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useSpring, animated } from "@react-spring/web";
+import { useState, useEffect } from "react";
+
+function NumberCounter({ n }) {
+  const { number } = useSpring({
+    from: { number: 0 },
+    number: n,
+    delay: 200,
+    config: { mass: 1, tension: 20, friction: 10 },
+  });
+  return <animated.span>{number.to((n) => n.toFixed(0))}</animated.span>;
+}
 
 const stats = [
-  { label: "Annual Capacity", value: "5,000 MT" },
-  { label: "Factories", value: "3+" },
-  { label: "Partner Farmers", value: "1,200+" },
-  { label: "Global Clients", value: "45+" },
+  { label: "Annual Capacity (MT)", value: 5000, suffix: "+" },
+  { label: "Factories", value: 3, suffix: "+" },
+  { label: "Partner Farmers", value: 1200, suffix: "+" },
+  { label: "Global Clients", value: 45, suffix: "+" },
 ];
 
 export default function AboutHero() {
@@ -31,7 +43,10 @@ export default function AboutHero() {
           <div className="grid grid-cols-2 gap-8">
              {stats.map((stat, idx) => (
                <div key={idx}>
-                 <h3 className="text-3xl font-bold text-gray-900">{stat.value}</h3>
+                 <h3 className="text-3xl font-bold text-gray-900 flex items-center">
+                   <NumberCounter n={stat.value} />
+                   {stat.suffix}
+                 </h3>
                  <p className="text-gray-500 text-sm uppercase tracking-wide">{stat.label}</p>
                </div>
              ))}
@@ -60,4 +75,3 @@ export default function AboutHero() {
     </section>
   );
 }
-

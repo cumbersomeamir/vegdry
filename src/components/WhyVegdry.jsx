@@ -1,7 +1,10 @@
 "use client";
 
+import { useScroll, animated, useSpring } from "@react-spring/web";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Factory, Zap, TrendingDown, Globe2, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const features = [
   {
@@ -27,13 +30,27 @@ const features = [
   },
 ];
 
-import Link from "next/link";
-
 export default function WhyVegdry() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const springProps = useSpring({
+    from: { backgroundPosition: "0% 0%" },
+    to: { backgroundPosition: "0% 100%" },
+    config: { duration: 20000 },
+    loop: true,
+  });
+
   return (
-    <section className="relative overflow-hidden py-24 bg-gray-900 text-white">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <section ref={containerRef} className="relative overflow-hidden py-24 bg-gray-900 text-white">
+      {/* Animated Background Grid */}
+      <animated.div 
+        style={springProps}
+        className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" 
+      />
       
       <div className="container mx-auto px-6 relative z-10">
         
@@ -112,4 +129,3 @@ export default function WhyVegdry() {
     </section>
   );
 }
-
